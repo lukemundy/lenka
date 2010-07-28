@@ -1,6 +1,6 @@
 # Lenka
 
-Lenka is a website CMS (Content Management System) written in PHP with the (CodeIgniter)[http://codeigniter.com/] framework.
+Lenka is a website CMS (Content Management System) written in PHP with the [CodeIgniter](http://codeigniter.com/) framework.
 
 Once finished, it will power my personal website at <http://lmundy.com/>.
 
