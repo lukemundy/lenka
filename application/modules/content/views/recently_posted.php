@@ -8,7 +8,7 @@
 			<?= $a['date'] ?>
 		</div>
 		<div class="article_body">
-			<?= nl2br($a['body']) ?>
+			<?= parse_markdown($a['body']) ?>
 		</div>
 	</div>
 	<? endforeach; ?>

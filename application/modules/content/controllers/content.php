@@ -17,6 +17,7 @@ class Content extends MY_Controller
 	public function index()
 	{
 		$this->load->model('content_m');
+		$this->load->helper('content');
 		
 		$this->data['articles'] = $this->content_m->get_recent();
 		
