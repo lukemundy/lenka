@@ -325,5 +325,17 @@ $config['rewrite_short_tags'] = FALSE;
 $config['proxy_ips'] = '';
 
 
+/*
+|--------------------------------------------------------------------------
+| Temporary Directory
+|--------------------------------------------------------------------------
+|
+| Full path to a temp storage location. This directory will be used for
+| temporary file uploads and other files of a temporary nature.
+|
+*/
+$config['tmp_dir'] = FCPATH.'tmp/';
+
+
 /* End of file config.php */
 /* Location: ./system/application/config/config.php */
