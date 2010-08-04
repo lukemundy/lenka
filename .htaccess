@@ -1,13 +1,25 @@
-# Don't allow directory indexes
+# Don't allow directory indexes by default
 Options -Indexes
 
 <IfModule mod_rewrite.c>
-# Remove the pesky index.php from URIs
-
-RewriteEngine on
-RewriteCond $1 !^(index\.php|robots\.txt|favicon.ico)
-RewriteRule ^(.*)$ /index.php?/$1 [L]
-
+	# Remove the pesky index.php from URIs.
+	# Technique adaptined from example at
+	# http://www.anmsaiful.net/blog/php/remove-codeigniter-index-php.html
+	RewriteEngine on
+	
+	# Forbid browsing of the following directories/files
+	#	system/				- CodeIgniter directory
+	#	application/cache	- Cache directory
+	#	externals/			- 3rd party stuff
+	#	.git*				- Any git files/folders
+	RedirectMatch 403 ^/(system|application\/cache|externals|\.git).*$
+	
+	# Redirect all requests that don't go to an actual file or folder to
+	# the CodeIgniter index.php
+	RewriteCond %{REQUEST_FILENAME} !-f
+	RewriteCond %{REQUEST_FILENAME} !-d
+	
+	RewriteRule ^(.*)$ index.php/$1 [L]
 </IfModule>
 
 <IfModule !mod_rewrite.c>
