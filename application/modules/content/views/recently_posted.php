@@ -2,12 +2,12 @@
 
 <div class="content_list">
 	<? foreach ($articles as $a): ?>
-	<div class="article_container">
-		<h2><?= $a['title'] ?></h2>
-		<div class="article_details">
-			<?= $a['date'] ?>
+	<div class="article">
+		<h2 class="title"><?= $a['title'] ?></h2>
+		<div class="details">
+			Posted <?= $a['date'] ?>
 		</div>
-		<div class="article_body">
+		<div class="body">
 			<?= parse_markdown($a['body']) ?>
 		</div>
 	</div>

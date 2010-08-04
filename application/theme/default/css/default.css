@@ -1,0 +1,45 @@
+/**
+ * Blueprint CSS
+ */
+@import 'blueprint/reset.css';
+@import 'blueprint/typography.css';
+
+/**
+ * Changes to Blueprint, default typography
+ */
+body { background: #356aa0 url('../img/background.png') repeat-x; }
+
+ul { list-style: none; padding-left: 1.5em; }
+
+ul li {
+	padding-left: 20px;
+	background: transparent url('../img/bullet_black.png') no-repeat scroll 0 2px;
+}
+
+/**
+ * Strutural elements
+ */
+h1.site-name, p.site-tagline { color: #fff; width: 700px; margin: 0 auto; }
+h1.site-name { margin: 1em auto 0; }
+
+div#container {
+	width: 700px; margin: 2em auto; background: #fff; padding: 1.5em;
+	-webkit-border-radius: 10px;
+	-khtml-border-radius: 10px;	
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+}
+
+/**
+ * View styles
+ */
+div.article {
+	margin-bottom: 2em; padding-bottom: 10px;
+	background: transparent url('../img/post-shadow.png') repeat-x scroll bottom;
+}
+div.article h2.title {
+	margin: 0; padding: 0 0 0.2em; font-size: 1.5em; line-height: 1.25;
+	border-bottom: 1px dotted #ccc;
+}
+div.article div.details { font-size: 0.9em; color: #999; line-height: 1.8; }
+div.article div.body { text-align: justify; margin-top: 1.5em; padding: 0 0.5em; }

@@ -63,8 +63,6 @@ class Template
 		// Add supplied data to any existing data
 		$this->data = array_merge($this->data, $data);
 		
-		$this->data['page_title'] = $this->title ? $this->title : "{$this->method} | {$this->controller} | {$this->module}";
-		
 		/*
 			Before we parse the view we need to see if there is an override in
 			the current theme:			
@@ -82,6 +80,10 @@ class Template
 		{
 			$view = "../$override";
 		}
+		
+		// Get all data needed to pass to views
+		$this->data['theme_url'] = site_url() ."application/theme/{$this->conf['theme']}/";
+		$this->data['page_title'] = ucwords(($this->title ? $this->title : "{$this->method} | {$this->controller} | {$this->module}"));
 		
 		// Get page body
 		$this->data['page_body'] = $this->ci->load->view($view, $this->data, TRUE);

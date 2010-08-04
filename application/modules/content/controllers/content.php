@@ -19,6 +19,7 @@ class Content extends MY_Controller
 		$this->load->model('content_m');
 		$this->load->helper('content');
 		
+		$this->data['module_title'] = 'Recently Added';
 		$this->data['articles'] = $this->content_m->get_recent();
 		
 		$this->template->render('recently_posted', $this->data);
