@@ -6,7 +6,7 @@
  * @subpackage Libraries
  * @author Luke Mundy
  */
-class Admin extends MY_Controller
+class Admin extends Backend_Controller
 {
 	/**
 	 * List Articles

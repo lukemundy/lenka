@@ -6,7 +6,7 @@
  * @subpackage Libraries
  * @author Luke Mundy
  */
-class Content extends MY_Controller
+class Content extends Frontend_Controller
 {
 	/**
 	 * Content index page
