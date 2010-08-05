@@ -81,9 +81,17 @@ class Template
 			$view = "../$override";
 		}
 		
+		// Set a page title if one hasn't been set
+		if (empty($this->data['page_title']))
+		{
+			if ($this->controller == $this->module) $title = "{$this->method} | {$this->module}";
+			else $title = "{$this->method} | {$this->controller} | {$this->module}";
+			
+			$this->data['page_title'] = ucwords($title);
+		}
+		
 		// Get all data needed to pass to views
 		$this->data['theme_url'] = site_url() ."application/theme/{$this->conf['theme']}/";
-		$this->data['page_title'] = ucwords(($this->title ? $this->title : "{$this->method} | {$this->controller} | {$this->module}"));
 		
 		// Get page body
 		$this->data['page_body'] = $this->ci->load->view($view, $this->data, TRUE);
