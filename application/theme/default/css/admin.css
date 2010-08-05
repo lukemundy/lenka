@@ -1,0 +1,96 @@
+/**
+ * Blueprint CSS
+ */
+@import 'blueprint/reset.css';
+@import 'blueprint/typography.css';
+
+/**
+ * Changes to Blueprint, default typography
+ */
+body { font-size: 68%; background: #f6f6f6; }
+
+ul { list-style: none; padding-left: 1.5em; }
+
+ul li {
+	padding-left: 20px;
+	background: transparent url('../img/bullet_black.png') no-repeat scroll 0 2px;
+}
+
+/**
+ * Strutural elements
+ */
+div#container {
+	width: 95%; margin: 1em auto; background: #fff;
+	-webkit-border-bottom-left-radius: 10px;
+	-khtml-border-radius-bottomleft: 10px;	
+	-moz-border-radius-bottomleft: 10px;
+	border-radius-bottomleft: 10px;
+	-webkit-border-bottom-right-radius: 10px;
+	-khtml-border-radius-bottomright: 10px;	
+	-moz-border-radius-bottomright: 10px;
+	border-radius-bottomright: 10px;
+}
+
+div#admin-header {
+	background: #333 url('../img/admin-header-background.png') repeat-x; color: #fff;
+	-webkit-border-top-left-radius: 10px;
+	-khtml-border-radius-topleft: 10px;	
+	-moz-border-radius-topleft: 10px;
+	border-radius-topleft: 10px;
+	-webkit-border-top-right-radius: 10px;
+	-khtml-border-radius-topright: 10px;	
+	-moz-border-radius-topright: 10px;
+	border-radius-topright: 10px;
+}
+
+div#admin-header h1 { margin: 0; padding: 0.5em; color: #fff; font-size: 1.8em; }
+
+div#admin-menubar {
+	font-weight: bold; border: 1px solid #eee; height: 27px;
+	background: #fff url('../img/admin-menubar-background.png') repeat-x;
+}
+
+div#module { padding: 1em; }
+
+div#footer { text-align: center; color: #666; }
+
+/**
+ * Menubar Styling
+ */
+
+/* The Actual Menubar */
+ul.dropdown { margin: 0.5em 0; padding: 0; position: relative; }
+ul.dropdown li { background: none; margin: 0; padding: 0.5em 1em; display: inline; cursor: default; }
+ul.dropdown li.hover { background-color: #c3d9ff; }
+
+/* Default menu item styles */
+ul.dropdown li li { display: block; padding: 0; clear: both; }
+ul.dropdown li.parent { position: relative; }
+ul.dropdown li.parent li.parent { background: transparent url('../img/icons/bullet_arrow_right.png') no-repeat 98% 50%; }
+ul.dropdown li.parent ul li { padding-left: 4px; }
+ul.dropdown li.parent ul li.hover { background-color: #E5ECF9; }
+ul.dropdown a {
+	padding: 0.5em 0 0.5em 30px; font-weight: normal; text-decoration: none;
+	color: #333; cursor: default; display: block; height: 16px;
+	background-color: transparent;
+	background-repeat: no-repeat;
+	background-position: left 50%;
+}
+
+/* First-level menu */
+ul.dropdown li.parent ul {
+	display: none; z-index: 100; position: absolute; width: 150px;
+	padding: 0; margin: 0; left: 0; top: 2em;
+	background: #fff url('../img/menu-background.png') repeat-y left;
+	border: 1px solid #666;
+	-webkit-border-radius: 2px;
+	-khtml-border-radius: 2px;	
+	-moz-border-radius: 2px;
+	border-radius: 2px;
+}
+
+/* Each level menu thereafter */
+ul.dropdown li.parent ul ul { left: 150px; top: 0; }
+
+/* Current menu always above any others */
+ul.dropdown li.hover ul { z-index: 200; }
