@@ -18,10 +18,10 @@
 			
 			$('ul.dropdown li.parent').hover(
 				function () {
-					$(this).children('ul:first').slideDown(100);
+					$(this).children('ul:first').stop(true, true).slideDown(100);
 				},
 				function () {
-					$(this).children('ul:first').fadeOut(100);
+					$(this).children('ul:first').stop(true, true).fadeOut(100);
 				}
 			);
 		});
