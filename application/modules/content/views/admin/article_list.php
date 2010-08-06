@@ -2,7 +2,7 @@
 <h2>Article Manager</h2>
 
 <div id="actions">
-	<a href="#"><span class="icon-newpage">New</span></a>
+	<a href="/content/admin/create"><span class="icon-newpage">New</span></a>
 	<a href="#"><span class="icon-editpage">Edit</span></a>
 	<a href="#" onclick="javascript: delete_articles();"><span class="icon-deletepage">Delete</span></a>
 	<a href="#"><span class="icon-publishpage">Publish</span></a>

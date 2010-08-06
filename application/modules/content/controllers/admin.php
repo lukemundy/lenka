@@ -41,6 +41,15 @@ class Admin extends Backend_Controller
 		
 		$this->output->set_output($result);
 	}
+	
+	/**
+	 * Show Article Editor
+	 * @return void
+	 */
+	public function create()
+	{
+		$this->template->render('admin/article_editor');
+	}
 }
 
 // END - class Content

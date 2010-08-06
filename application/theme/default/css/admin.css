@@ -16,6 +16,10 @@ ul li {
 	background: transparent url('../img/bullet_black.png') no-repeat scroll 0 2px;
 }
 
+div.clearfix { clear: both; }
+
+input, textarea { font-size: 1em; }
+
 /**
  * Strutural elements
  */
@@ -115,4 +119,38 @@ div#actions a:hover, div#actions a:active { background-position: 0% 100%; }
 div#actions a span {
 	background-repeat: no-repeat; background-position: left; padding-left: 20px;
 	display: inline-block;
+}
+
+/**
+ * Article Editor Styles
+ */
+div#editor-container {
+	font-size: inherit; padding: 0.5em;
+}
+
+/* editor panel */
+div#editor {
+	float: left; width: 50%; height: 100%;
+}
+
+div#properties { padding: 0.25em 0; border: 1px solid #ccc; }
+div#properties div.field { padding: 0.25em 0.5em; }
+div#properties label { float: left; margin: 0; padding: 0; width: 100px; font-weight: bold; }
+div#properties input { width: 300px; }
+div#properties input, select { font-size: 1em; }
+
+div#tools { padding: 0.25em 0; border: 1px solid #ccc; margin-top: 0.5em; }
+div#tools div.tool-row { clear: both; }
+div#tools div.tool { float: left; height: 18px; margin: 0.25em; }
+div#tools div.seperator { float: left; height: 18px; margin: 0.25em; width: 0px; border-width: 0 1px; border-left-color: #ddd; border-right-color: #999; border-style: none solid;}
+div#tools div.tool a { display: block; width: 18px; height: 18px; background-repeat: no-repeat; background-position: 50% 50%; border: 1px solid transparent; }
+div#tools div.tool a:hover { background-color: #eee; border: 1px solid #ccc; }
+
+div#body { padding: 0.5em; margin-top: 0.5em; border: 1px solid #ccc; }
+div#body textarea { width: 100%; height: 400px; margin: 0; padding: 0; border: 0; font-family: Tahoma, serif; }
+
+
+/* preview panel */
+div#preview {
+	float: right; width: 50%;
 }
