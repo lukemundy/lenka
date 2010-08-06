@@ -30,6 +30,9 @@
 							<a href="#" class="icon-userman">User Manager</a>
 						</li>
 						<li>
+							<a href="<?= site_url() ?>" class="icon-viewsite">View Site</a>
+						</li>
+						<li>
 							<a href="#" class="icon-logout">Logout</a>
 						</li>
 					</ul>
