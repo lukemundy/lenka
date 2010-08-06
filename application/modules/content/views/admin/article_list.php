@@ -23,7 +23,7 @@
 		<tbody>
 			<? foreach ($articles as $k => $a): ?>
 			<?= ($k % 2 > 0 ? '<tr class="even">' : '<tr>') ?>
-				<td><input type="checkbox" value="<?= (int) $a['ID_CNT'] ?>" class="chk-article" tabindex="<?= $tabindex++ ?>" /></td>
+				<td><input type="checkbox" value="<?= (int) $a['ID_CNT'] ?>" class="checkall" tabindex="<?= $tabindex++ ?>" /></td>
 				<td class="quiet"><?= (int) $a['ID_CNT'] ?></td>
 				<td><a href="edit"><?= (strlen($a['title']) > 40 ? substr($a['title'], 0, 50).'&hellip;' : $a['title']) ?></a></td>
 				<td><?= date('d M Y \a\t H:i', $a['date']) ?></td>

@@ -1,7 +1,7 @@
 function delete_articles()
 {
 	// Get all checked boxes
-	var boxes = $('input.chk-article:checked');
+	var boxes = $('input:checked');
 	var num = boxes.length;
 	
 	if (num < 1) alert("You must select some articles to delete.");
@@ -45,7 +45,7 @@ $(document).ready(function () {
 	);
 	
 	$('input#checkall').change(function () {
-		if ($(this).attr('checked')) $('input.chk-article').attr('checked', 'checked');
-		else $('input.chk-article').removeAttr('checked');
+		if ($(this).attr('checked')) $('input.checkall').attr('checked', 'checked');
+		else $('input.checkall').removeAttr('checked');
 	});
 });
