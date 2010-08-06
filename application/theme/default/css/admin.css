@@ -50,7 +50,9 @@ div#admin-menubar {
 	background: #fff url('../img/admin-menubar-background.png') repeat-x;
 }
 
-div#module { padding: 1em; }
+div#actions { position: absolute; height: 30px; right: 1em; top: 1.5em; }
+
+div#module { padding: 1em; position: relative; }
 
 div#footer { text-align: center; color: #666; }
 
@@ -94,3 +96,19 @@ ul.dropdown li.parent ul ul { left: 150px; top: 0; }
 
 /* Current menu always above any others */
 ul.dropdown li.hover ul { z-index: 200; }
+
+/**
+ * Action bar styling
+ */
+div#actions a {
+	text-decoration: none; color: #333; height: 25px; padding: 5px 10px 5px 5px;
+	background: #fff url('../img/button-background.png') repeat-x;
+	border: 1px solid #ddd; margin: 0.25em;
+}
+
+div#actions a:hover, div#actions a:active { background-position: 0% 100%; }
+
+div#actions a span {
+	background-repeat: no-repeat; background-position: left; padding-left: 20px;
+	display: inline-block;
+}

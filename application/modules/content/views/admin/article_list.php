@@ -1,18 +1,29 @@
+<? $tabindex = 1; ?>
 <h2>Article Manager</h2>
+
+<div id="actions">
+	<a href="#"><span class="icon-newpage">New</span></a>
+	<a href="#"><span class="icon-editpage">Edit</span></a>
+	<a href="#" onclick="javascript: delete_articles();"><span class="icon-deletepage">Delete</span></a>
+	<a href="#"><span class="icon-publishpage">Publish</span></a>
+	<a href="#"><span class="icon-unpublishpage">Unpublish</span></a>
+</div>
 
 <div class="article-manager">
 	<table>
 		<thead>
 			<tr>
+				<th width="1"><input id="checkall" type="checkbox" tabindex="<?= $tabindex++ ?>" /></th>
 				<th width="1">ID#</th>
 				<th width="70%">Title</th>
 				<th>Created</th>
-				<th width="10%">Actions</th>
+				<th>Actions</th>
 			</tr>
 		</thead>
 		<tbody>
 			<? foreach ($articles as $k => $a): ?>
 			<?= ($k % 2 > 0 ? '<tr class="even">' : '<tr>') ?>
+				<td><input type="checkbox" value="<?= (int) $a['ID_CNT'] ?>" class="chk-article" tabindex="<?= $tabindex++ ?>" /></td>
 				<td class="quiet"><?= (int) $a['ID_CNT'] ?></td>
 				<td><a href="edit"><?= (strlen($a['title']) > 40 ? substr($a['title'], 0, 50).'&hellip;' : $a['title']) ?></a></td>
 				<td><?= date('d M Y \a\t H:i', $a['date']) ?></td>

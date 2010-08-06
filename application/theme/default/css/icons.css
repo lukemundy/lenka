@@ -3,14 +3,18 @@
  */
 
 .icon-admincp		{ background-image: url('../img/icons/application_view_tile.png'); }
+.icon-articleman	{ background-image: url('../img/icons/page_white_stack.png'); }
+.icon-authorlink	{ background-image: url('../img/icons/world.png'); }
 .icon-config		{ background-image: url('../img/icons/wrench.png'); }
-.icon-userman		{ background-image: url('../img/icons/user.png'); }
+.icon-deletepage	{ background-image: url('../img/icons/page_white_delete.png'); }
+.icon-editpage		{ background-image: url('../img/icons/page_white_edit.png'); }
+.icon-encpage		{ background-image: url('../img/icons/page_white_key.png'); }
+.icon-help			{ background-image: url('../img/icons/help.png'); }
 .icon-logout		{ background-image: url('../img/icons/door_open.png'); }
 .icon-newpage		{ background-image: url('../img/icons/page_white_add.png'); }
-.icon-articleman	{ background-image: url('../img/icons/page_white_stack.png'); }
-.icon-encpage		{ background-image: url('../img/icons/page_white_key.png'); }
 .icon-newwidget		{ background-image: url('../img/icons/plugin_add.png'); }
-.icon-widgetpos		{ background-image: url('../img/icons/plugin_link.png'); }
-.icon-help			{ background-image: url('../img/icons/help.png'); }
+.icon-publishpage	{ background-image: url('../img/icons/page_white_get.png'); }
 .icon-sysinfo		{ background-image: url('../img/icons/information.png'); }
-.icon-authorlink	{ background-image: url('../img/icons/world.png'); }
+.icon-unpublishpage	{ background-image: url('../img/icons/page_white_put.png'); }
+.icon-userman		{ background-image: url('../img/icons/user.png'); }
+.icon-widgetpos		{ background-image: url('../img/icons/plugin_link.png'); }
