@@ -104,6 +104,10 @@ div#actions a {
 	text-decoration: none; color: #333; height: 25px; padding: 5px 10px 5px 5px;
 	background: #fff url('../img/button-background.png') repeat-x;
 	border: 1px solid #ddd; margin: 0.25em;
+	-webkit-border-radius: 3px;
+	-khtml-border-radius: 3px;	
+	-moz-border-radius: 3px;
+	border-radius: 3px;
 }
 
 div#actions a:hover, div#actions a:active { background-position: 0% 100%; }
