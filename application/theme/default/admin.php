@@ -38,10 +38,10 @@
 					<span>Content</span>
 					<ul>
 						<li>
-							<a href="#" class="icon-newpage">New Article</a>
+							<a href="/content/admin/create" class="icon-newpage">New Article</a>
 						</li>
 						<li>
-							<a href="#" class="icon-articleman">Article Manager</a>
+							<a href="/content/admin" class="icon-articleman">Article Manager</a>
 						</li>
 						<li>
 							<a href="#" class="icon-encpage">Encrypted Articles</a>
