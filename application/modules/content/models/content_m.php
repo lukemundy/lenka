@@ -25,6 +25,9 @@ class Content_m extends Model
 			->get('content')
 			->result_array();
 		
+		// Convert MySQL date string to a unix timestamp
+		foreach ($content as $k => $val) $content[$k]['date'] = mysql_to_unix($val['date']);
+		
 		return $content;
 	}
 	
@@ -42,6 +45,9 @@ class Content_m extends Model
 			->order_by('date', 'desc')
 			->get('content')
 			->result_array();
+		
+		// Convert MySQL date string to a unix timestamp
+		foreach ($content as $k => $val) $content[$k]['date'] = mysql_to_unix($val['date']);
 		
 		return $content;
 	}
