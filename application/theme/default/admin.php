@@ -8,24 +8,7 @@
 	<?= link_tag($theme_url . 'css/icons.css') ?>
 	
 	<script type="text/javascript" src="<?= $theme_url ?>js/jquery-1.4.2.min.js"></script>
-	
-	<script type="text/javascript">
-		$(document).ready(function () {
-			$('ul.dropdown li').hover(
-				function () { $(this).addClass('hover'); },
-				function () { $(this).removeClass('hover'); }
-			);
-			
-			$('ul.dropdown li.parent').hover(
-				function () {
-					$(this).children('ul:first').stop(true, true).slideDown(100);
-				},
-				function () {
-					$(this).children('ul:first').stop(true, true).fadeOut(100);
-				}
-			);
-		});
-	</script>
+	<script type="text/javascript" src="<?= $theme_url ?>js/admin.js"></script>
 </head>
 <body>
 	<div id="container">
