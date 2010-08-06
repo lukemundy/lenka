@@ -4,6 +4,7 @@
 	<table>
 		<thead>
 			<tr>
+				<th width="1">ID#</th>
 				<th width="70%">Title</th>
 				<th>Created</th>
 				<th width="10%">Actions</th>
@@ -12,8 +13,9 @@
 		<tbody>
 			<? foreach ($articles as $k => $a): ?>
 			<?= ($k % 2 > 0 ? '<tr class="even">' : '<tr>') ?>
+				<td class="quiet"><?= (int) $a['ID_CNT'] ?></td>
 				<td><a href="edit"><?= (strlen($a['title']) > 40 ? substr($a['title'], 0, 50).'&hellip;' : $a['title']) ?></a></td>
-				<td><?= $a['date'] ?></td>
+				<td><?= date('d M Y \a\t H:i', $a['date']) ?></td>
 				<td>
 					<img src="<?= $theme_url ?>img/icons/page_edit.png" width="16" height="16" alt="Edit page icon" />
 					<img src="<?= $theme_url ?>img/icons/page_delete.png" width="16" height="16" alt="Delete page icon" />
