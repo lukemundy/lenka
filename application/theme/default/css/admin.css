@@ -20,7 +20,7 @@ ul li {
  * Strutural elements
  */
 div#container {
-	width: 95%; margin: 1em auto; background: #fff;
+	width: 98%; margin: 1em auto; background: #fff;
 	-webkit-border-bottom-left-radius: 10px;
 	-khtml-border-radius-bottomleft: 10px;	
 	-moz-border-radius-bottomleft: 10px;
@@ -50,7 +50,7 @@ div#admin-menubar {
 	background: #fff url('../img/admin-menubar-background.png') repeat-x;
 }
 
-div#actions { position: absolute; height: 30px; right: 1em; top: 1.5em; }
+div#actions { position: absolute; height: 30px; right: 1em; top: 1.5em; z-index: 90; }
 
 div#module { padding: 1em; position: relative; }
 
