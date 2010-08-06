@@ -39,6 +39,7 @@ class Content_m extends Model
 		$content = $this->db
 			->select('ID_CNT, stub, title, date, state')
 			->limit($n, (($pg-1) * $n))
+			->order_by('date', 'desc')
 			->get('content')
 			->result_array();
 		
