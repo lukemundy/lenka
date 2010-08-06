@@ -13,7 +13,7 @@ class Content_m extends Model
 	 * @param int $num
 	 * @return array
 	 */
-	function get_recent($num = 5)
+	public function get_recent($num = 5)
 	{
 		$content = array();
 		
@@ -37,7 +37,7 @@ class Content_m extends Model
 	 * @param int $pg Page number for pagination
 	 * @return array
 	 */
-	function get_list($n, $pg)
+	public function get_list($n, $pg)
 	{
 		$content = $this->db
 			->select('ID_CNT, stub, title, date, state')
@@ -50,6 +50,20 @@ class Content_m extends Model
 		foreach ($content as $k => $val) $content[$k]['date'] = mysql_to_unix($val['date']);
 		
 		return $content;
+	}
+	
+	/**
+	 * Delete one or more articles
+	 * @param array articles
+	 * @return bool
+	 */
+	public function delete_article($articles)
+	{
+		foreach ($articles as $id) $this->db->or_where('ID_CNT', $id);
+		
+		$this->db->delete('content');
+		
+		return ($this->db->affected_rows() == count($articles));
 	}
 }
 

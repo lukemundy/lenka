@@ -23,6 +23,24 @@ class Admin extends Backend_Controller
 		
 		$this->template->render('admin/article_list', $this->data);
 	}
+	
+	/**
+	 * Delete articles
+	 * @return void
+	 */
+	public function delete()
+	{
+		$this->load->model('content_m');
+		
+		$articles = $this->input->post('articles');
+		
+		// Make sure we pass an array of integers to the delete method
+		foreach ($articles as $k => $val) $articles[$k] = (int) $val;
+		
+		$result = $this->content_m->delete_article($articles) ? 'success' : 'failure';
+		
+		$this->output->set_output($result);
+	}
 }
 
 // END - class Content
