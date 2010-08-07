@@ -1,3 +1,7 @@
+/**
+ * Delete's all ticked articles
+ * @return void
+ */
 function delete_articles()
 {
 	// Get all checked boxes
@@ -28,6 +32,25 @@ function delete_articles()
 	}
 }
 
+/**
+ * Updates the preview box
+ * @return void
+ */
+function preview()
+{
+	var txt = $('div#body textarea').val();
+	
+	// Submit text to be parsed via AJAX 
+	$.ajax({
+		type: 'POST',
+		url: '/content/admin/preview',
+		data: { txt: txt },
+		success: function (data, status) {
+			$('div#preview').children('div:first').empty().append(data);
+		}
+	});
+}
+
 $(document).ready(function () {
 	// Setup the menubar
 	$('ul.dropdown li').hover(
@@ -44,8 +67,12 @@ $(document).ready(function () {
 		}
 	);
 	
+	// Add functionailty to "check all" box
 	$('input#checkall').change(function () {
 		if ($(this).attr('checked')) $('input.checkall').attr('checked', 'checked');
 		else $('input.checkall').removeAttr('checked');
 	});
+	
+	// Enable the tab key in textareas
+	$('textarea').tabOverride();
 });

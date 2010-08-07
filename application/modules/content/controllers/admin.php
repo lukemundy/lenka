@@ -50,6 +50,24 @@ class Admin extends Backend_Controller
 	{
 		$this->template->render('admin/article_editor');
 	}
+	
+	/**
+	 * Return parsed preview
+	 * @return void
+	 */
+	public function preview()
+	{
+		$parsed = '';
+		
+		if ($_POST)
+		{
+			$this->load->helper('content');
+			
+			$parsed = parse_markdown($this->input->post('txt'));
+		}
+		
+		$this->output->set_output($parsed);
+	}
 }
 
 // END - class Content

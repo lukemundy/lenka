@@ -8,6 +8,7 @@
 	<?= link_tag($theme_url . 'css/icons.css') ?>
 	
 	<script type="text/javascript" src="<?= $theme_url ?>js/jquery-1.4.2.min.js"></script>
+	<script type="text/javascript" src="<?= $theme_url ?>js/jquery.taboverride-1.0.js"></script>
 	<script type="text/javascript" src="<?= $theme_url ?>js/admin.js"></script>
 </head>
 <body>

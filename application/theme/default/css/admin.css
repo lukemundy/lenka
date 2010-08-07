@@ -147,10 +147,11 @@ div#tools div.tool a { display: block; width: 18px; height: 18px; background-rep
 div#tools div.tool a:hover { background-color: #eee; border: 1px solid #ccc; }
 
 div#body { padding: 0.5em; margin-top: 0.5em; border: 1px solid #ccc; }
-div#body textarea { width: 100%; height: 400px; margin: 0; padding: 0; border: 0; font-family: Tahoma, serif; }
+div#body textarea { width: 100%; height: 400px; margin: 0; padding: 0; border: 0; font-size: 1.4em; }
 
 
 /* preview panel */
 div#preview {
 	float: right; width: 50%;
+	text-align: justify; font-size: 1.1em;
 }

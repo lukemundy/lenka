@@ -1,7 +1,7 @@
 <h2>Article Editor</h2>
 
 <div id="actions">
-	<a href="#"><span class="icon-preview">Preview</span></a>
+	<a href="#" onclick="javascript: preview();"><span class="icon-preview">Preview</span></a>
 	<a href="#"><span class="icon-save">Save</span></a>
 	<a href="#"><span class="icon-apply">Apply</span></a>
 	<a href="#"><span class="icon-cancel">Cancel</span></a>
