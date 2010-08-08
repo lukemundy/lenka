@@ -40,15 +40,18 @@ function preview()
 {
 	var txt = $('div#body textarea').val();
 	
-	// Submit text to be parsed via AJAX 
-	$.ajax({
-		type: 'POST',
-		url: '/content/admin/preview',
-		data: { txt: txt },
-		success: function (data, status) {
-			$('div#preview').children('div:first').empty().append(data);
-		}
-	});
+	if (txt.length > 0)
+	{
+		// Submit text to be parsed via AJAX 
+		$.ajax({
+			type: 'POST',
+			url: '/content/admin/preview',
+			data: { txt: txt },
+			success: function (data, status) {
+				$('div#preview').children('div:first').empty().append(data);
+			}
+		});
+	}
 }
 
 $(document).ready(function () {
