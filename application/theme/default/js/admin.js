@@ -128,4 +128,14 @@ $(document).ready(function () {
 	
 	// Click to dismiss message box
 	$('div#messages').click(function () { $(this).fadeOut(250); });
+	
+	// Clicking article row will tick it's respective box
+	$('div.article-manager tr').each(function () {
+		$(this).children('td:not(:first)').click(function () {
+			var chkbox = $(this).parent('tr').find('input[type=checkbox]');
+			
+			if (chkbox.attr('checked')) chkbox.removeAttr('checked');
+			else chkbox.attr('checked', 'checked');
+		});
+	});
 });
