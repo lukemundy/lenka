@@ -1,3 +1,4 @@
+<? $this->load->helper('form'); ?>
 <h2>Article Editor</h2>
 
 <div id="actions">
@@ -12,23 +13,44 @@
 	<div id="editor">
 	<div style="padding: 0.5em;">
 		<form id="article-form" action="/content/admin/save" method="POST">
+		<?= (empty($article) ? '' : form_hidden('ID_CNT', $article['ID_CNT'])) ?> 
 		<div id="properties">
 				<div class="field">
 					<label>Title:</label>
-					<input type="text" name="title" />
+					<input type="text" name="title" value="<?= (empty($article) ? '' : form_prep($article['title'])) ?>" />
 				</div>
 				<div class="field">
 					<label>Stub:</label>
-					<input type="text" name="stub" />
+					<input type="text" name="stub" value="<?= (empty($article) ? '' : form_prep($article['stub'])) ?>" />
 				</div>
 				<div class="field">
 					<label>State:</label>
-					<select name="state">
-						<option selected="selected">--</option>
-						<option value="0">Draft</option>
-						<option value="1">Published</option>
-						<option value="2">Encrypted</option>
-					</select>
+					<?
+						$dropdown = array(
+							'-1' => '--',
+							'1' => 'Draft',
+							'2' => 'Published',
+							'3' => 'Encrypted',
+						);
+						
+						if (! empty($article))
+						{
+							switch ($article['state'])
+							{
+								case 'draft': $selected = 1;
+								break;
+								
+								case 'published': $selected = 2;
+								break;
+								
+								case 'encrypted': $selected = 3;
+								break;
+							}
+						}
+						else $selected = -1;
+						
+						echo form_dropdown('state', $dropdown, $selected);
+					?>
 				</div>
 			</div>
 			
@@ -69,7 +91,7 @@
 			</div>
 			
 			<div id="body">
-				<textarea name="body"></textarea>
+				<textarea name="body"><?= (empty($article) ? '' : form_prep($article['body'])) ?></textarea>
 			</div>
 			</form>
 		</div>

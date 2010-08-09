@@ -52,6 +52,24 @@ class Admin extends Backend_Controller
 	}
 	
 	/**
+	 * Edit an article
+	 * @return void
+	 */
+	public function edit($id)
+	{
+		$this->load->model('content_m');
+		
+		// Check article exists
+		if ($article = $this->content_m->get_article((int) $id))
+		{
+			$this->data['article'] = $article;
+			$this->data['page_title'] = "Editing: {$article['title']}";
+			
+			$this->template->render('admin/article_editor', $this->data);
+		}
+	}
+	
+	/**
 	 * Return parsed preview
 	 * @return void
 	 */

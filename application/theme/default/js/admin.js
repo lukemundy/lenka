@@ -101,4 +101,13 @@ $(document).ready(function () {
 	
 	// Enable the tab key in textareas
 	$('textarea').tabOverride();
+	
+	// Auto-create stub
+	$('input[name=title]').change(function () {
+		var stub = $(this).val().toLowerCase();
+		
+		stub = stub.replace(/[^\w]+/ig, '-');
+		
+		$('input[name=stub]').val(stub);
+	});
 });

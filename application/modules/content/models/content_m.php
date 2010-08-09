@@ -9,6 +9,48 @@
 class Content_m extends Model
 {
 	/**
+	 * Add new article to database
+	 * @param array $article
+	 * @return void
+	 */
+	public function create($article)
+	{
+		$article['date'] = date('Y-m-d H:i:s', now());
+		
+		$this->db->insert('content', $article);
+	}
+	
+	/**
+	 * Delete one or more articles
+	 * @param array articles
+	 * @return bool
+	 */
+	public function delete_article($articles)
+	{
+		foreach ($articles as $id) $this->db->or_where('ID_CNT', $id);
+		
+		$this->db->delete('content');
+		
+		return ($this->db->affected_rows() == count($articles));
+	}
+	
+	/**
+	 * Check if an article exists
+	 * @param int $id
+	 * @return bool
+	 */
+	public function get_article($id)
+	{
+		$query = $this->db
+			->select('ID_CNT, stub, title, body, date, modified, state')
+			->where('ID_CNT', (int) $id)
+			->limit(1)
+			->get('content');
+		
+		return $query->num_rows() == 0 ? FALSE : $query->row_array();
+	}
+	
+	/**
 	 * Get recently posted articles
 	 * @param int $num
 	 * @return array
@@ -53,33 +95,19 @@ class Content_m extends Model
 	}
 	
 	/**
-	 * Delete one or more articles
-	 * @param array articles
-	 * @return bool
-	 */
-	public function delete_article($articles)
-	{
-		foreach ($articles as $id) $this->db->or_where('ID_CNT', $id);
-		
-		$this->db->delete('content');
-		
-		return ($this->db->affected_rows() == count($articles));
-	}
-	
-	/**
 	 * Check if stub is unique
 	 * @param string $stub
 	 * @return bool
 	 */
 	public function stub_is_unique($stub)
 	{
-		$foo = $this->db
+		$row = $this->db
 			->select('COUNT(*) as num')
 			->where('stub', $stub)
 			->get('content')
 			->row();
 		
-		return ($foo->num == 0);
+		return ($row->num == 0);
 	}
 	
 	/**
@@ -94,18 +122,6 @@ class Content_m extends Model
 		$this->db
 			->where('ID_CNT', $article['ID_CNT'])
 			->update('content', $article);
-	}
-	
-	/**
-	 * Add new article to database
-	 * @param array $article
-	 * @return void
-	 */
-	public function create($article)
-	{
-		$article['date'] = date('Y-m-d H:i:s', now());
-		
-		$this->db->insert('content', $article);
 	}
 }
 
