@@ -72,7 +72,21 @@ function save()
 		url: '/content/admin/save',
 		data: data,
 		success: function (data, status) {
-			window.location = '/content/admin';
+			var r = $.parseJSON(data);
+			
+			if (r.success) window.location = '/content/admin/';
+			else
+			{
+				var error_msg = '<div class="error"><p><strong>'+ r.response +'</strong></p>'+ r.txt +'</div>';
+				
+				$('div#messages')
+					.empty()
+					.append(error_msg);
+				
+				if ( ! $('div#messages').is(":visible")) $('div#messages').slideDown(250);
+				
+				fields.removeAttr('disabled');
+			}
 		}
 	});
 }
@@ -106,8 +120,12 @@ $(document).ready(function () {
 	$('input[name=title]').change(function () {
 		var stub = $(this).val().toLowerCase();
 		
-		stub = stub.replace(/[^\w]+/ig, '-');
+		// Strip unwanted characters
+		stub = stub.replace(/[^\w]+$/ig, '').replace(/^[^\w]+/ig, '').replace(/[^\w]+/ig, '-');
 		
 		$('input[name=stub]').val(stub);
 	});
+	
+	// Click to dismiss message box
+	$('div#messages').click(function () { $(this).fadeOut(250); });
 });

@@ -51,6 +51,27 @@ class Content_m extends Model
 	}
 	
 	/**
+	 * Returns a list of articles, minus their body.
+	 * @param int $n Number of articles to return
+	 * @param int $pg Page number for pagination
+	 * @return array
+	 */
+	public function get_list($n, $pg)
+	{
+		$content = $this->db
+			->select('ID_CNT, stub, title, date, state')
+			->limit($n, (($pg-1) * $n))
+			->order_by('date', 'desc')
+			->get('content')
+			->result_array();
+		
+		// Convert MySQL date string to a unix timestamp
+		foreach ($content as $k => $val) $content[$k]['date'] = mysql_to_unix($val['date']);
+		
+		return $content;
+	}
+	
+	/**
 	 * Get recently posted articles
 	 * @param int $num
 	 * @return array
@@ -74,24 +95,20 @@ class Content_m extends Model
 	}
 	
 	/**
-	 * Returns a list of articles, minus their body.
-	 * @param int $n Number of articles to return
-	 * @param int $pg Page number for pagination
-	 * @return array
+	 * Returns the stub of an article
+	 * @param int $id
+	 * @return string
 	 */
-	public function get_list($n, $pg)
+	public function get_stub($id)
 	{
-		$content = $this->db
-			->select('ID_CNT, stub, title, date, state')
-			->limit($n, (($pg-1) * $n))
-			->order_by('date', 'desc')
+		$row = $this->db
+			->select('stub')
+			->where('ID_CNT', $id)
+			->limit(1)
 			->get('content')
-			->result_array();
+			->row();
 		
-		// Convert MySQL date string to a unix timestamp
-		foreach ($content as $k => $val) $content[$k]['date'] = mysql_to_unix($val['date']);
-		
-		return $content;
+		return $row->stub;
 	}
 	
 	/**
@@ -99,11 +116,12 @@ class Content_m extends Model
 	 * @param string $stub
 	 * @return bool
 	 */
-	public function stub_is_unique($stub)
+	public function stub_is_unique($stub, $id)
 	{
 		$row = $this->db
 			->select('COUNT(*) as num')
 			->where('stub', $stub)
+			->where('ID_CNT !=', (int) $id)
 			->get('content')
 			->row();
 		

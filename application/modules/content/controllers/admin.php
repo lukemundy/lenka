@@ -97,6 +97,7 @@ class Admin extends Backend_Controller
 		if (empty($_POST)) return;
 		
 		$this->load->library('form_validation');
+		$this->load->helper('json');
 		
 		// Set default validation rules
 		$this->form_validation->set_rules(array(
@@ -113,7 +114,7 @@ class Admin extends Backend_Controller
 			array(
 				'field' => 'state',
 				'label' => 'State',
-				'rules' => 'required|numeric'
+				'rules' => 'required|is_natural_no_zero'
 			),
 			array(
 				'field' => 'body',
@@ -128,12 +129,14 @@ class Admin extends Backend_Controller
 		if ($this->input->post('ID_CNT'))
 		{	// Updating
 			// Add validation rule for the article ID
-			$this->form_validation->set_rules('ID_CNT', 'Article ID', 'required|numeric');
+			$this->form_validation->set_rules('ID_CNT', 'Article ID', 'required|integer');
 			
 			// Run validation
 			if ($this->form_validation->run() == FALSE)
 			{
-				print_r($this->form_validation->error_array());
+				$errors = $this->form_validation->error_string('<li>', '</li>');
+				
+				$response = json_response(FALSE, 'Could not save changes', "<ul>$errors</ul>");
 			}
 			else
 			{
@@ -146,6 +149,8 @@ class Admin extends Backend_Controller
 				);
 				
 				$this->content_m->update($article);
+				
+				$response = json_response(TRUE, 'Article Saved Successfully', "The article \"{$article['title']}\" was successfully saved.");
 			}
 		}
 		else
@@ -153,7 +158,9 @@ class Admin extends Backend_Controller
 			// Run validation
 			if ($this->form_validation->run() == FALSE)
 			{
-				print_r($this->form_validation->error_array());
+				$errors = $this->form_validation->error_string('<li>', '</li>');
+				
+				$response = json_response(FALSE, 'Could not save changes', "<ul>$errors</ul>");
 			}
 			else
 			{
@@ -165,8 +172,12 @@ class Admin extends Backend_Controller
 				);
 				
 				$this->content_m->create($article);
+				
+				$response = json_response(TRUE, 'Article Saved Successfully', "The article \"{$article['title']}\" was successfully saved.");
 			}
 		}
+		
+		$this->output->set_output($response);
 	}
 	
 	/**
@@ -178,7 +189,9 @@ class Admin extends Backend_Controller
 	{
 		$this->load->model('content_m');
 		
-		return $this->content_m->stub_is_unique($str);
+		$this->form_validation->set_message('stubcheck', 'The stub you entered already exists in the database. Please choose a unique stub.');
+		
+		return $this->content_m->stub_is_unique($str, $this->input->post('ID_CNT'));
 	}
 }
 

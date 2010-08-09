@@ -60,6 +60,8 @@ div#module { padding: 1em; position: relative; }
 
 div#footer { text-align: center; color: #666; padding-bottom: 2em; }
 
+div#messages { display: none; }
+
 /**
  * Menubar Styling
  */

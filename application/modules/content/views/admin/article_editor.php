@@ -9,6 +9,7 @@
 </div>
 
 <div id="editor-container">
+	<div id="messages"></div>
 	
 	<div id="editor">
 	<div style="padding: 0.5em;">
@@ -45,6 +46,8 @@
 								
 								case 'encrypted': $selected = 3;
 								break;
+								
+								default: $selected = -1;
 							}
 						}
 						else $selected = -1;
