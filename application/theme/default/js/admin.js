@@ -25,7 +25,7 @@ function delete_articles()
 				data: { articles: data },
 				success: function (data, status) {
 					if (data == 'failure') alert("Could not delete articles");
-					else window.location = '/content/admin'
+					else window.location = '/content/admin';
 				}
 			});
 		}
@@ -52,6 +52,29 @@ function preview()
 			}
 		});
 	}
+}
+
+/**
+ * Saves an article
+ * @return void
+ */
+function save()
+{
+	var form = $('#article-form');
+	var fields = form.find('input,textarea,select');
+	var data = form.serialize();
+	
+	// Disable fields
+	fields.attr('disabled', 'disabled');
+	
+	$.ajax({
+		type: 'POST',
+		url: '/content/admin/save',
+		data: data,
+		success: function (data, status) {
+			window.location = '/content/admin';
+		}
+	});
 }
 
 $(document).ready(function () {

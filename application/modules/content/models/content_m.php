@@ -65,6 +65,48 @@ class Content_m extends Model
 		
 		return ($this->db->affected_rows() == count($articles));
 	}
+	
+	/**
+	 * Check if stub is unique
+	 * @param string $stub
+	 * @return bool
+	 */
+	public function stub_is_unique($stub)
+	{
+		$foo = $this->db
+			->select('COUNT(*) as num')
+			->where('stub', $stub)
+			->get('content')
+			->row();
+		
+		return ($foo->num == 0);
+	}
+	
+	/**
+	 * Update an article
+	 * @param array $article
+	 * @return void
+	 */
+	public function update($article)
+	{
+		$article['modified'] = date('Y-m-d H:i:s', now());
+		
+		$this->db
+			->where('ID_CNT', $article['ID_CNT'])
+			->update('content', $article);
+	}
+	
+	/**
+	 * Add new article to database
+	 * @param array $article
+	 * @return void
+	 */
+	public function create($article)
+	{
+		$article['date'] = date('Y-m-d H:i:s', now());
+		
+		$this->db->insert('content', $article);
+	}
 }
 
 // END - class Content_m

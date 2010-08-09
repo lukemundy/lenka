@@ -2,7 +2,7 @@
 
 <div id="actions">
 	<a href="#" onclick="javascript: preview();"><span class="icon-preview">Preview</span></a>
-	<a href="#"><span class="icon-save">Save</span></a>
+	<a href="#" onclick="javascript: save();"><span class="icon-save">Save</span></a>
 	<a href="#"><span class="icon-apply">Apply</span></a>
 	<a href="#"><span class="icon-cancel">Cancel</span></a>
 </div>
@@ -11,6 +11,7 @@
 	
 	<div id="editor">
 	<div style="padding: 0.5em;">
+		<form id="article-form" action="/content/admin/save" method="POST">
 		<div id="properties">
 				<div class="field">
 					<label>Title:</label>
@@ -70,6 +71,7 @@
 			<div id="body">
 				<textarea name="body"></textarea>
 			</div>
+			</form>
 		</div>
 	</div>
 	
