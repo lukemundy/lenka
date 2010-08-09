@@ -47,7 +47,16 @@ class Content_m extends Model
 			->limit(1)
 			->get('content');
 		
-		return $query->num_rows() == 0 ? FALSE : $query->row_array();
+		if ($query->num_rows() == 1)
+		{
+			$content = $query->row_array();
+			
+			$content['date'] = mysql_to_unix($content['date']);
+			$content['modified'] = ($content['modified'] == NULL ? NULL : mysql_to_unix($content['modified']));
+		}
+		else $content = FALSE;
+		
+		return $content;
 	}
 	
 	/**
@@ -58,15 +67,24 @@ class Content_m extends Model
 	 */
 	public function get_list($n, $pg)
 	{
-		$content = $this->db
-			->select('ID_CNT, stub, title, date, state')
+		$query = $this->db
+			->select('ID_CNT, stub, title, date, modified, state')
 			->limit($n, (($pg-1) * $n))
 			->order_by('date', 'desc')
-			->get('content')
-			->result_array();
+			->get('content');
 		
-		// Convert MySQL date string to a unix timestamp
-		foreach ($content as $k => $val) $content[$k]['date'] = mysql_to_unix($val['date']);
+		if ($query->num_rows() > 0)
+		{
+			$content = $query->result_array();
+			
+			// Convert MySQL date strings to a unix timestamps
+			foreach ($content as $k => $val)
+			{
+				$content[$k]['date'] = mysql_to_unix($val['date']);
+				$content[$k]['modified'] = ($val['modified'] == NULL ? NULL : mysql_to_unix($val['modified']));
+			}
+		}
+		else $content = FALSE;
 		
 		return $content;
 	}

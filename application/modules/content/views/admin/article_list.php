@@ -17,24 +17,25 @@
 				<th width="1">ID#</th>
 				<th width="70%">Title</th>
 				<th>Created</th>
-				<th>Actions</th>
+				<th>Last Modified</th>
 			</tr>
 		</thead>
 		<tbody>
-			<? foreach ($articles as $k => $a): ?>
-			<?= ($k % 2 > 0 ? '<tr class="even">' : '<tr>') ?>
-				<td><input type="checkbox" value="<?= (int) $a['ID_CNT'] ?>" class="checkall" tabindex="<?= $tabindex++ ?>" /></td>
-				<td class="quiet"><?= (int) $a['ID_CNT'] ?></td>
-				<td><a href="/content/admin/edit/<?= (int) $a['ID_CNT'] ?>"><?= (strlen($a['title']) > 40 ? substr($a['title'], 0, 50).'&hellip;' : $a['title']) ?></a></td>
-				<td><?= date('d M Y \a\t H:i', $a['date']) ?></td>
-				<td>
-					<img src="<?= $theme_url ?>img/icons/page_edit.png" width="16" height="16" alt="Edit page icon" />
-					<img src="<?= $theme_url ?>img/icons/page_delete.png" width="16" height="16" alt="Delete page icon" />
-					<? if ($a['state'] === 'published'): ?><img src="<?= $theme_url ?>img/icons/page_red.png" width="16" height="16" alt="Unpublish page icon" />
-					<? else: ?><img src="<?= $theme_url ?>img/icons/page.png" width="16" height="16" alt="Publish page icon" /><? endif; ?>
-				</td>
-			</tr>
-			<? endforeach; ?>
+			<? if ( ! $articles): ?>
+				<tr>
+					<td colspan="5" style="text-align: center;">There are currently no articles in the database. Write one now by clicking on the 'New' button above.</td>
+				</tr>
+			<? else: ?>
+				<? foreach ($articles as $k => $a): ?>
+				<?= ($k % 2 > 0 ? '<tr class="even">' : '<tr>') ?>
+					<td><input type="checkbox" value="<?= (int) $a['ID_CNT'] ?>" class="checkall" tabindex="<?= $tabindex++ ?>" /></td>
+					<td class="quiet"><?= (int) $a['ID_CNT'] ?></td>
+					<td><a href="/content/admin/edit/<?= (int) $a['ID_CNT'] ?>"><?= (strlen($a['title']) > 40 ? substr($a['title'], 0, 50).'&hellip;' : $a['title']) ?></a></td>
+					<td><?= date('d M Y \a\t H:i', $a['date']) ?></td>
+					<td><?= ($a['modified'] == NULL ? '<span class="quiet">never</span>' : date('d M Y \a\t H:i', $a['modified'])) ?></td>
+				</tr>
+				<? endforeach; ?>			
+			<? endif; ?>
 		</tbody>
 	</table>
 </div>
