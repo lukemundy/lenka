@@ -131,7 +131,7 @@ class Template
 		}
 
 		// Get all data needed to pass to views
-		$this->data['theme_url'] = site_url() ."application/theme/{$this->conf['theme']}/";
+		$this->data['theme_url'] = "/application/theme/{$this->conf['theme']}/";
 
 		// Get page body
 		$this->data['page_body'] = $this->ci->load->view($view, $this->data, TRUE);

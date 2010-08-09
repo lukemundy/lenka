@@ -4,8 +4,8 @@
 	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 	<title><?= $page_title ?></title>
 	
-	<?= link_tag($theme_url . 'css/admin.css') ?>
-	<?= link_tag($theme_url . 'css/icons.css') ?>
+	<link  href="<?= $theme_url ?>css/admin.css" rel="stylesheet" type="text/css" />
+	<link  href="<?= $theme_url ?>css/icons.css" rel="stylesheet" type="text/css" />
 	
 	<script type="text/javascript" src="<?= $theme_url ?>js/jquery-1.4.2.min.js"></script>
 	<script type="text/javascript" src="<?= $theme_url ?>js/jquery.taboverride-1.0.js"></script>
