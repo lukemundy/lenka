@@ -16,6 +16,7 @@
 				<th width="1"><input id="checkall" type="checkbox" tabindex="<?= $tabindex++ ?>" /></th>
 				<th width="1">ID#</th>
 				<th width="70%">Title</th>
+				<th width="1%">State</th>
 				<th>Created</th>
 				<th>Last Modified</th>
 			</tr>
@@ -31,6 +32,28 @@
 					<td><input type="checkbox" value="<?= (int) $a['ID_CNT'] ?>" class="checkall" tabindex="<?= $tabindex++ ?>" /></td>
 					<td class="quiet"><?= (int) $a['ID_CNT'] ?></td>
 					<td><a href="/content/admin/edit/<?= (int) $a['ID_CNT'] ?>"><?= (strlen($a['title']) > 40 ? substr($a['title'], 0, 50).'&hellip;' : $a['title']) ?></a></td>
+					<td style="text-align: center;">
+						<?
+							switch($a['state'])
+							{
+								case 'draft':
+									echo '<img src="'. $theme_url .'img/icons/page_red.png" width="16" height="16" />';
+								break;
+								
+								case 'published':
+									echo '<img src="'. $theme_url .'img/icons/page_green.png" width="16" height="16" />';
+								break;
+								
+								case 'encrypted':
+									echo '<img src="'. $theme_url .'img/icons/lock.png" width="16" height="16" />';
+								break;
+								
+								default:
+								
+								break;
+							}
+						?>
+					</td>
 					<td><?= date('d M Y \a\t H:i', $a['date']) ?></td>
 					<td><?= ($a['modified'] == NULL ? '<span class="quiet">never</span>' : date('d M Y \a\t H:i', $a['modified'])) ?></td>
 				</tr>
