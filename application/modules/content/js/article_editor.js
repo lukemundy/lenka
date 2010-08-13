@@ -1,4 +1,13 @@
 /**
+ * Discards changes and closes document
+ * @return void
+ */
+function cancel()
+{
+	if (confirm('Discard all changes to current document?')) window.location = '/content/admin/';
+}
+
+/**
  * Updates the preview box
  * @return void
  */
@@ -21,7 +30,7 @@ function preview()
 }
 
 /**
- * Saves an article
+ * Saves and closes an article
  * @return void
  */
 function save()

@@ -5,7 +5,7 @@
 	<a href="#" onclick="javascript: preview();"><span class="icon-preview">Preview</span></a>
 	<a href="#" onclick="javascript: save();"><span class="icon-save">Save</span></a>
 	<a href="#"><span class="icon-apply">Apply</span></a>
-	<a href="#"><span class="icon-cancel">Cancel</span></a>
+	<a href="#" onclick="javascript: cancel();"><span class="icon-cancel">Cancel</span></a>
 </div>
 
 <div id="editor-container">
