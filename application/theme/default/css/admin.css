@@ -1,24 +1,11 @@
-/**
- * Blueprint CSS
- */
-@import 'blueprint/reset.css';
-@import 'blueprint/typography.css';
+@import 'typography.css';
+@import 'icons.css';
 
 /**
- * Changes to Blueprint, default typography
+ * Changes to default typography
  */
 body { font-size: 68%; background: #f6f6f6; }
 
-ul { list-style: none; padding-left: 1.5em; }
-
-ul li {
-	padding-left: 20px;
-	background: transparent url('../img/bullet_black.png') no-repeat scroll 0 2px;
-}
-
-div.clearfix { clear: both; }
-
-input, textarea { font-size: 1em; }
 
 /**
  * Strutural elements

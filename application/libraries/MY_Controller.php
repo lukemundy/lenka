@@ -24,6 +24,10 @@ class MY_Controller extends Controller
 		$this->data['method'] =& $this->method;
 		
 		$this->load->library('template');
+		
+		// Load system-wide css and javascript
+		$this->template->add_css(BASE_URL. 'static/css/system.css');
+		$this->template->add_script(BASE_URL. 'static/js/jquery-1.4.2.min.js');
 	}
 }
 

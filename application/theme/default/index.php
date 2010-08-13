@@ -4,7 +4,10 @@
 	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 	<title><?= $page_title ?></title>
 	
-	<?= link_tag($theme_url . 'css/default.css') ?>
+	<?= $tpl->head_data() ?>
+
+	<?= css("{$theme_url}css/default.css"); ?>
+
 </head>
 <body>
 	<h1 class="site-name"><?= $this->config->item('site_name') ?></h1>

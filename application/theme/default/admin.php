@@ -4,11 +4,10 @@
 	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 	<title><?= $page_title ?></title>
 	
-	<link  href="<?= $theme_url ?>css/admin.css" rel="stylesheet" type="text/css" />
-	<link  href="<?= $theme_url ?>css/icons.css" rel="stylesheet" type="text/css" />
+	<?= $tpl->head_data() ?>
 	
-	<script type="text/javascript" src="<?= $theme_url ?>js/jquery-1.4.2.min.js"></script>
-	<script type="text/javascript" src="<?= $theme_url ?>js/jquery.taboverride-1.0.js"></script>
+	<?= css("{$theme_url}css/admin.css") ?>
+	
 	<script type="text/javascript" src="<?= $theme_url ?>js/admin.js"></script>
 </head>
 <body>

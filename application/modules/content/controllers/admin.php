@@ -21,6 +21,8 @@ class Admin extends Backend_Controller
 		$this->data['module_title'] = 'Recently Added';
 		$this->data['articles'] = $this->content_m->get_list(20, 1);
 		
+		$this->template->add_script('index');
+		
 		$this->template->render('admin/article_list', $this->data);
 	}
 	
@@ -30,6 +32,8 @@ class Admin extends Backend_Controller
 	 */
 	public function create()
 	{
+		$this->template->add_script('article_editor');
+		
 		$this->template->render('admin/article_editor');
 	}
 	
@@ -64,6 +68,7 @@ class Admin extends Backend_Controller
 		{
 			$this->data['article'] = $article;
 			$this->data['page_title'] = "Editing: {$article['title']}";
+			$this->template->add_script('article_editor');
 			
 			$this->template->render('admin/article_editor', $this->data);
 		}

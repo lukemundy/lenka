@@ -42,6 +42,45 @@ class Template
 	}
 	
 	/**
+	 * Add a Cascading Style Sheet to <head>
+	 * @param string $css
+	 * @return void
+	 */
+	public function add_css($css)
+	{
+		// Are we including an external sheet?
+		if (strpos($css, 'http://') === FALSE)
+		{
+			// Does this file exist in the theme dir?
+			$path = "theme/{$this->conf['theme']}/css/$css.css";
+			
+			if (file_exists(APPPATH.$path))
+			{
+				$this->head[] = '<link href="'. APP_URI . $path .'" rel="stylesheet" type="text/css" />';
+			}
+			else
+			{
+				// Check in module directory then
+				$path = "modules/{$this->module}/js/$css.js";
+				
+				if (file_exists(APPPATH.$path))
+				{
+					$this->head[] = '<link href="'. APP_URI . $path .'" rel="stylesheet" type="text/css" />';
+				}
+				else
+				{
+					$this->head[] = "<!-- Could not locate stylesheet - $css.css -->";
+				}
+			}
+			
+		}
+		else
+		{
+			$this->head[] = '<link href="'. $css .'" rel="stylesheet" type="text/css" />';
+		}
+	}
+	
+	/**
 	 * Add a JavaScript source file to <head>
 	 * @param string $script
 	 * @return void
@@ -56,7 +95,7 @@ class Template
 			
 			if (file_exists(APPPATH.$path))
 			{
-				$this->head[] = '<script type="text/javascript" src="'. APP_URI . $path .'"></script>';
+				$this->head[] = '<script src="'. APP_URI . $path .'" type="text/javascript" ></script>';
 			}
 			else
 			{
@@ -65,7 +104,7 @@ class Template
 				
 				if (file_exists(APPPATH.$path))
 				{
-					$this->head[] = '<script type="text/javascript" src="'. APP_URI . $path .'"></script>';
+					$this->head[] = '<script src="'. APP_URI . $path .'" type="text/javascript"></script>';
 				}
 				else
 				{
@@ -76,7 +115,7 @@ class Template
 		}
 		else
 		{
-			$this->head[] = '<script type="text/javascript" src="'. $script .'"></script>';
+			$this->head[] = '<script src="'. $script .'" type="text/javascript"></script>';
 		}
 	}
 	
@@ -183,7 +222,7 @@ class Template
 		}
 
 		// Get all data needed to pass to views
-		$this->data['theme_url'] = "/application/theme/{$this->conf['theme']}/";
+		$this->data['theme_url'] = APP_URI . "theme/{$this->conf['theme']}/";
 
 		// Get page body
 		$this->data['page_body'] = $this->ci->load->view($view, $this->data, TRUE);

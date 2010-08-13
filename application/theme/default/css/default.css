@@ -1,20 +1,4 @@
-/**
- * Blueprint CSS
- */
-@import 'blueprint/reset.css';
-@import 'blueprint/typography.css';
-
-/**
- * Changes to Blueprint, default typography
- */
-body { background: #356aa0 url('../img/background.png') repeat-x; }
-
-ul { list-style: none; padding-left: 1.5em; }
-
-ul li {
-	padding-left: 20px;
-	background: transparent url('../img/bullet_black.png') no-repeat scroll 0 2px;
-}
+@import 'typography.css';
 
 /**
  * Strutural elements
@@ -42,4 +26,5 @@ div.article h2.title {
 	border-bottom: 1px dotted #ccc;
 }
 div.article div.details { font-size: 0.9em; color: #999; line-height: 1.8; }
-div.article div.body { text-align: justify; margin-top: 1.5em; padding: 0 0.5em; }
+div.article div.body { margin-top: 1.5em; padding: 0 0.5em; }
+div.article div.body p { text-align: justify; }
