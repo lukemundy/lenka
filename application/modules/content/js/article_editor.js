@@ -31,9 +31,10 @@ function preview()
 
 /**
  * Saves and closes an article
+ * @param bool
  * @return void
  */
-function save()
+function save(keep_editing)
 {
 	var form = $('#article-form');
 	var fields = form.find('input,textarea,select');
@@ -49,7 +50,22 @@ function save()
 		success: function (data, status) {
 			var r = $.parseJSON(data);
 			
-			if (r.success) window.location = '/content/admin/';
+			if (r.success)
+			{
+				if (keep_editing)
+				{
+					var foo = '<div class="success">Changes to article "'+ data['title'] +'" saved successfully.</div>';
+					
+					$('div#messages')
+						.empty()
+						.append(foo);
+						
+					if ( ! $('div#messages').is(":visible")) $('div#messages').slideDown(250);
+
+					fields.removeAttr('disabled');
+				}
+				else window.location = '/content/admin/';
+			}
 			else
 			{
 				var error_msg = '<div class="error"><p><strong>'+ r.response +'</strong></p>'+ r.txt +'</div>';
