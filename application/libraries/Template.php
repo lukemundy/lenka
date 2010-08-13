@@ -16,6 +16,7 @@ class Template
 	private $data = array();
 
 	private $title = '';
+	private $head = array();
 
 	/**
 	 * Class Constructor
@@ -35,6 +36,57 @@ class Template
 		$this->module = $this->ci->router->fetch_module();
 		$this->controller = $this->ci->router->fetch_class();
 		$this->method = $this->ci->router->fetch_method();
+		
+		// Provide access to this object in all views
+		$this->data['tpl'] =& $this;
+	}
+	
+	/**
+	 * Add a JavaScript source file to <head>
+	 * @param string $script
+	 * @return void
+	 */
+	public function add_script($script)
+	{
+		// Are we including an external script?
+		if (strpos($script, 'http://') === FALSE)
+		{
+			// Does this file exist in the theme dir?
+			$path = "theme/{$this->conf['theme']}/js/$script.js";
+			
+			if (file_exists(APPPATH.$path))
+			{
+				$this->head[] = '<script type="text/javascript" src="'. APP_URI . $path .'"></script>';
+			}
+			else
+			{
+				// Check in module directory then
+				$path = "modules/{$this->module}/js/$script.js";
+				
+				if (file_exists(APPPATH.$path))
+				{
+					$this->head[] = '<script type="text/javascript" src="'. APP_URI . $path .'"></script>';
+				}
+				else
+				{
+					$this->head[] = "<!-- Could not locate script - $script.js -->";
+				}
+			}
+			
+		}
+		else
+		{
+			$this->head[] = '<script type="text/javascript" src="'. $script .'"></script>';
+		}
+	}
+	
+	/**
+	 * Return all head data as a string
+	 * @return void
+	 */
+	public function head_data()
+	{
+		return implode("\n\t", $this->head) ."\n";
 	}
 
 	/**

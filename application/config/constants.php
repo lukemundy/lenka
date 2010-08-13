@@ -36,6 +36,22 @@ define('FOPEN_READ_WRITE_CREATE', 				'a+b');
 define('FOPEN_WRITE_CREATE_STRICT', 			'xb');
 define('FOPEN_READ_WRITE_CREATE_STRICT',		'x+b');
 
+/*
+|--------------------------------------------------------------------------
+| URL Constants
+|--------------------------------------------------------------------------
+*/
+$url = empty($_SERVER['HTTPS']) ? 'http://' : 'https://';
+$url .= $_SERVER['HTTP_HOST'];
+$url .= str_replace(basename($_SERVER['SCRIPT_NAME']), '', $_SERVER['SCRIPT_NAME']);
+
+$uri = parse_url($url, PHP_URL_PATH);
+
+define('BASE_URL', $url);
+define('BASE_URI', $uri);
+define('APP_URI', BASE_URI . APPPATH);
+
+
 
 /* End of file constants.php */
 /* Location: ./system/application/config/constants.php */
