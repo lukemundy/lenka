@@ -1,4 +1,19 @@
 /**
+ * Edit the selected article
+ * @return void
+ */
+function edit_article()
+{
+	// Get all checked boxes
+	var boxes = $('input:checked');
+	var num = boxes.length;
+	
+	if (num > 1) alert("You can only edit one article at a time.");
+	else if (num < 1) alert("Please select an article to edit.");
+	else window.location = '/content/admin/edit/' + boxes.val();
+}
+
+/**
  * Deletes all ticked articles
  * @return void
  */
