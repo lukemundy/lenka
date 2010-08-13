@@ -15,10 +15,10 @@
 			<tr>
 				<th width="1"><input id="checkall" type="checkbox" tabindex="<?= $tabindex++ ?>" /></th>
 				<th width="1">ID#</th>
-				<th width="70%">Title</th>
-				<th width="1%">State</th>
-				<th>Created</th>
-				<th>Last Modified</th>
+				<th>Title</th>
+				<th width="1">State</th>
+				<th width="130">Created</th>
+				<th width="130">Last Modified</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -30,9 +30,9 @@
 				<? foreach ($articles as $k => $a): ?>
 				<?= ($k % 2 > 0 ? '<tr class="even">' : '<tr>') ?>
 					<td><input type="checkbox" value="<?= (int) $a['ID_CNT'] ?>" class="checkall" tabindex="<?= $tabindex++ ?>" /></td>
-					<td class="quiet"><?= (int) $a['ID_CNT'] ?></td>
+					<td class="quiet center"><?= (int) $a['ID_CNT'] ?></td>
 					<td><a href="/content/admin/edit/<?= (int) $a['ID_CNT'] ?>"><?= (strlen($a['title']) > 40 ? substr($a['title'], 0, 50).'&hellip;' : $a['title']) ?></a></td>
-					<td style="text-align: center;">
+					<td class="center">
 						<?
 							switch($a['state'])
 							{
