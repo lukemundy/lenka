@@ -65,5 +65,17 @@ $(document).ready(function () {
 			else chkbox.attr('checked', 'checked');
 		});
 	});
+	
+	// Highlight row
+	$('table tbody tr').hover(
+		function ()
+		{
+			$(this).addClass('highlight');
+		},
+		function ()
+		{
+			$(this).removeClass('highlight');
+		}
+	);
 
 });

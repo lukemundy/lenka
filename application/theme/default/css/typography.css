@@ -44,7 +44,7 @@ p img.right { float: right; margin: 1.5em 0 1.5em 1.5em; }
 
 a:focus, 
 a:hover { color: #000; }
-a { color: #009; text-decoration: underline; }
+a { color: #0B55C4; text-decoration: underline; }
 
 blockquote { margin: 1.5em; color: #666; font-style: italic; }
 strong { font-weight: bold; }
@@ -108,6 +108,7 @@ th { font-weight: bold; }
 thead th { background: #333; color: #fff; }
 th,td,caption { padding: 4px 10px 4px 5px; }
 tr.even td { background: #eee; }
+tr.highlight td { background: #ffc; }
 tfoot { font-style: italic; }
 caption { background: #ccc; }
 
