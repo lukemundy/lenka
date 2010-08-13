@@ -25,6 +25,10 @@
 
 .clearfix { clear: both; }
 
+.center { text-align: center; }
+.left { text-align: left; }
+.right { text-align: right; }
+
 /**
  * Informational Message Box Styles
  */
