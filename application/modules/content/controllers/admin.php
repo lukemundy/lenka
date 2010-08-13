@@ -18,7 +18,7 @@ class Admin extends Backend_Controller
 	{
 		$this->load->model('content_m');
 		
-		$this->data['module_title'] = 'Recently Added';
+		$this->data['page_title'] = 'Article Manager';
 		$this->data['articles'] = $this->content_m->get_list(20, 1);
 		
 		$this->template->add_script('index');
@@ -32,9 +32,12 @@ class Admin extends Backend_Controller
 	 */
 	public function create()
 	{
+		$this->data['page_title'] = 'Editing: Untitled Article';
+		
+		$this->template->add_script(BASE_URL. 'static/js/jquery.taboverride-1.0.js');
 		$this->template->add_script('article_editor');
 		
-		$this->template->render('admin/article_editor');
+		$this->template->render('admin/article_editor', $this->data);
 	}
 	
 	/**
@@ -68,6 +71,7 @@ class Admin extends Backend_Controller
 		{
 			$this->data['article'] = $article;
 			$this->data['page_title'] = "Editing: {$article['title']}";
+			$this->template->add_script(BASE_URL. 'static/js/jquery.taboverride-1.0.js');
 			$this->template->add_script('article_editor');
 			
 			$this->template->render('admin/article_editor', $this->data);
