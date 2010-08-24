@@ -43,7 +43,18 @@ div#admin-menubar {
 
 div#actions { position: absolute; height: 30px; right: 1em; top: 1.5em; z-index: 90; }
 
-div#module { padding: 1em; position: relative; }
+div#module {
+	padding: 1em; position: relative;
+	border: 1px solid #ddd; border-style: none solid solid solid;
+	-webkit-border-bottom-left-radius: 10px;
+	-khtml-border-radius-bottomleft: 10px;	
+	-moz-border-radius-bottomleft: 10px;
+	border-radius-bottomleft: 10px;
+	-webkit-border-bottom-right-radius: 10px;
+	-khtml-border-radius-bottomright: 10px;	
+	-moz-border-radius-bottomright: 10px;
+	border-radius-bottomright: 10px;
+}
 
 div#footer { text-align: center; color: #666; padding-bottom: 2em; }
 
