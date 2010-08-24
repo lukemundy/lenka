@@ -43,6 +43,12 @@
 $route['default_controller'] = "content";
 $route['scaffolding_trigger'] = "";
 
+// This mimics a directory structure were all admin scripts are in a directory
+// named "admin" under the site root. Instead of /<module>/admin/<method> a more
+// logical uri of /admin/<module>/<method> is used instead.
+$route['admin/([a-zA-Z_-]+)/(:any)'] = "$1/admin/$2";
+$route['admin/([a-zA-Z_-]+)'] = "$1/admin/index";
+
 
 /* End of file routes.php */
 /* Location: ./system/application/config/routes.php */

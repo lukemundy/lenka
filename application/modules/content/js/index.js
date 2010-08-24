@@ -10,7 +10,7 @@ function edit_article()
 	
 	if (num > 1) alert("You can only edit one article at a time.");
 	else if (num < 1) alert("Please select an article to edit.");
-	else window.location = '/content/admin/edit/' + boxes.val();
+	else window.location = '/admin/content/edit/' + boxes.val();
 }
 
 /**
@@ -36,11 +36,11 @@ function delete_articles()
 			// Submit data via AJAX
 			$.ajax({
 				type: 'POST',
-				url: '/content/admin/delete',
+				url: '/admin/content/delete',
 				data: { articles: data },
 				success: function (data, status) {
 					if (data == 'failure') alert("Could not delete articles");
-					else window.location = '/content/admin';
+					else window.location = '/admin/content';
 				}
 			});
 		}

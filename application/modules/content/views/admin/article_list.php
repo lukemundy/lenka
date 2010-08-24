@@ -2,7 +2,7 @@
 <h2>Article Manager</h2>
 
 <div id="actions">
-	<a href="/content/admin/create"><span class="icon-newpage">New</span></a>
+	<a href="/admin/content/create"><span class="icon-newpage">New</span></a>
 	<a href="#" onclick="javascript: edit_article();"><span class="icon-editpage">Edit</span></a>
 	<a href="#" onclick="javascript: delete_articles();"><span class="icon-deletepage">Delete</span></a>
 	<a href="#"><span class="icon-publishpage">Publish</span></a>
@@ -31,7 +31,7 @@
 				<?= ($k % 2 > 0 ? '<tr class="even">' : '<tr>') ?>
 					<td><input type="checkbox" value="<?= (int) $a['ID_CNT'] ?>" class="checkall" tabindex="<?= $tabindex++ ?>" /></td>
 					<td class="quiet center"><?= (int) $a['ID_CNT'] ?></td>
-					<td><a href="/content/admin/edit/<?= (int) $a['ID_CNT'] ?>"><?= (strlen($a['title']) > 40 ? substr($a['title'], 0, 50).'&hellip;' : $a['title']) ?></a></td>
+					<td><a href="/admin/content/edit/<?= (int) $a['ID_CNT'] ?>"><?= (strlen($a['title']) > 40 ? substr($a['title'], 0, 50).'&hellip;' : $a['title']) ?></a></td>
 					<td class="center">
 						<?
 							switch($a['state'])

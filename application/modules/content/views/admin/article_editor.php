@@ -13,7 +13,7 @@
 	
 	<div id="editor">
 	<div style="padding: 0.5em;">
-		<form id="article-form" action="/content/admin/save" method="POST">
+		<form id="article-form" action="/admin/content/save" method="POST">
 		<?= (empty($article) ? '' : form_hidden('ID_CNT', $article['ID_CNT'])) ?> 
 		<div id="properties">
 				<div class="field">

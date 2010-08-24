@@ -4,7 +4,7 @@
  */
 function cancel()
 {
-	if (confirm('Discard all changes to current document?')) window.location = '/content/admin/';
+	if (confirm('Discard all changes to current document?')) window.location = '/admin/content/';
 }
 
 /**
@@ -20,7 +20,7 @@ function preview()
 		// Submit text to be parsed via AJAX 
 		$.ajax({
 			type: 'POST',
-			url: '/content/admin/preview',
+			url: '/admin/content/preview',
 			data: { txt: txt },
 			success: function (data, status) {
 				$('div#preview').children('div:first').empty().append(data);
@@ -45,7 +45,7 @@ function save(keep_editing)
 	
 	$.ajax({
 		type: 'POST',
-		url: '/content/admin/save',
+		url: '/admin/content/save',
 		data: data,
 		success: function (data, status) {
 			var r = $.parseJSON(data);
@@ -64,7 +64,7 @@ function save(keep_editing)
 
 					fields.removeAttr('disabled');
 				}
-				else window.location = '/content/admin/';
+				else window.location = '/admin/content/';
 			}
 			else
 			{
