@@ -47,6 +47,11 @@ $route['scaffolding_trigger'] = "";
 // named "admin" under the site root. Instead of /<module>/admin/<method> a more
 // logical uri of /admin/<module>/<method> is used instead.
 $route['admin/([a-zA-Z_-]+)/(:any)'] = "$1/admin/$2";
+
+// This is needed so the login/logout requests go to the right controller
+$route['admin/(login|logout)'] = "admin/$1";
+
+// Run the default method for the requested module's admin
 $route['admin/([a-zA-Z_-]+)'] = "$1/admin/index";
 
 
