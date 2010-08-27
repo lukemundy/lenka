@@ -22,7 +22,7 @@
 					<span>Site</span>
 					<ul>
 						<li>
-							<a href="<?= site_url('admin') ?>" class="icon-admincp">Control Panel</a>
+							<a href="<?= site_url('admin') ?>" class="icon-dashboard">Dashboard</a>
 						</li>
 						<li>
 							<a href="#" class="icon-config">Configuration</a>

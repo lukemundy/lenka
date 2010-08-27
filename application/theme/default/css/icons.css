@@ -2,7 +2,6 @@
  * Icon classes
  */
 
-.icon-admincp		{ background-image: url('../img/icons/application_view_tile.png'); }
 .icon-aligncenter	{ background-image: url('../img/icons/text_align_center.png'); }
 .icon-alignjustify	{ background-image: url('../img/icons/text_align_justify.png'); }
 .icon-alignleft		{ background-image: url('../img/icons/text_align_left.png'); }
@@ -13,6 +12,7 @@
 .icon-bold			{ background-image: url('../img/icons/text_bold.png'); }
 .icon-cancel		{ background-image: url('../img/icons/cancel.png'); }
 .icon-config		{ background-image: url('../img/icons/wrench.png'); }
+.icon-dashboard		{ background-image: url('../img/icons/application_view_tile.png'); }
 .icon-deletepage	{ background-image: url('../img/icons/page_white_delete.png'); }
 .icon-editpage		{ background-image: url('../img/icons/page_white_edit.png'); }
 .icon-encpage		{ background-image: url('../img/icons/page_white_key.png'); }
