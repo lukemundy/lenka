@@ -15,6 +15,23 @@ class Backend_Controller extends MY_Controller
 		
 		// Set template wrapper
 		$this->template->set_wrapper('admin.php');
+		
+		// Check that user is logged in
+		if ( ! $this->session->userdata('logged_in'))
+		{
+			log_message('debug', 'User not logged in!');
+			
+			// Only redirect them if they aren't logging in
+			if ($this->method != 'login')
+			{
+				log_message('debug', 'User not logged in, disallowing access to: '. $this->uri->uri_string());
+				
+				// Save this location in flashdata so they can return here once logged in.
+				$this->session->set_flashdata('return_to', $this->uri->uri_string());
+				
+				redirect(site_url('admin/login'));
+			}
+		}
 	}
 }
 

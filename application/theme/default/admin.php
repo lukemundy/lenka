@@ -16,6 +16,7 @@
 			<h1><?= $this->config->item('site_name') ?> // Administration</h1>
 		</div>
 		<div id="admin-menubar">
+			<? if ($this->session->userdata('logged_in')): ?>
 			<ul class="dropdown">
 				<li class="parent">
 					<span>Site</span>
@@ -77,6 +78,7 @@
 					</ul>
 				</li>
 			</ul>
+			<? endif; ?>
 		</div>
 		
 		<div id="module">
