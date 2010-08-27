@@ -16,7 +16,9 @@ class Admin extends Backend_Controller
 	 */
 	public function index()
 	{
-		$this->output->set_output('gday');
+		$this->data['page_title'] = 'Dashboard';
+		
+		$this->template->render('admin/dashboard', $this->data);
 	}
 	
 	/**
