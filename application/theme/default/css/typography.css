@@ -116,4 +116,5 @@ caption { background: #ccc; }
 /**
  * Forms
  */
+input, select { font-family: "Helvetica Neue", Arial, Helvetica, sans-serif; }
 input, textarea { font-size: 1em; }
