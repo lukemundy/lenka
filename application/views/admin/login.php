@@ -2,6 +2,11 @@
 	<h2>Administrator Login</h2>
 	
 	<script type="text/javascript">
+		function submit_form()
+		{
+			$('form#login').submit();
+		}
+		
 		$(document).ready(function () {
 			$('input#username').focus();
 		});
@@ -18,7 +23,7 @@
 		</div>
 		
 		<div class="button-cont">
-			<a class="button" href="#"><span class="icon-login">Login</span></a>
+			<a class="button" href="#" onclick="javascript: submit_form();"><span class="icon-login">Login</span></a>
 			<input type="submit" style="display: none;" />
 		</div>
 		
