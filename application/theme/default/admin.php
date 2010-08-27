@@ -22,7 +22,7 @@
 					<span>Site</span>
 					<ul>
 						<li>
-							<a href="#" class="icon-admincp">Control Panel</a>
+							<a href="<?= site_url('admin') ?>" class="icon-admincp">Control Panel</a>
 						</li>
 						<li>
 							<a href="#" class="icon-config">Configuration</a>
@@ -34,7 +34,7 @@
 							<a href="<?= site_url() ?>" class="icon-viewsite">View Site</a>
 						</li>
 						<li>
-							<a href="#" class="icon-logout">Logout</a>
+							<a href="<?= site_url('admin/logout') ?>" class="icon-logout">Logout</a>
 						</li>
 					</ul>
 				</li>
@@ -87,7 +87,7 @@
 	</div>
 	
 	<div id="footer">
-		Powered by Lenka<br />Page generated in {elapsed_time} seconds
+		Powered by Lenka<br />Page generated in {elapsed_time} seconds with <?= $this->db->total_queries() ?> database <?= ($this->db->total_queries() == 1 ? 'query' : 'queries') ?>.
 	</div>
 </body>
 </html>
