@@ -42,10 +42,10 @@
 					<span>Content</span>
 					<ul>
 						<li>
-							<a href="/admin/content/create" class="icon-newpage">New Article</a>
+							<a href="<?= site_url('admin/content/create') ?>" class="icon-newpage">New Article</a>
 						</li>
 						<li>
-							<a href="/admin/content" class="icon-articleman">Article Manager</a>
+							<a href="<?= site_url('admin/content') ?>" class="icon-articleman">Article Manager</a>
 						</li>
 						<li>
 							<a href="#" class="icon-encpage">Encrypted Articles</a>
