@@ -60,6 +60,37 @@ div#footer { text-align: center; color: #666; padding-bottom: 2em; }
 
 div#messages { display: none; }
 
+div#login-box {
+	width: 300px; margin: 3em auto 10em;
+	padding: 1em;
+	border: 1px solid #ccc;
+	-webkit-border-radius: 5px;
+	-khtml-border-radius: 5px;	
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+}
+
+/**
+ * Login Box Styling
+ */
+div#login-box h2 {
+	padding-left: 25px;
+	background: transparent url('../img/icons/wrench.png') no-repeat left;
+}
+
+div#login-box div.field { padding: 0.25em; }
+
+div#login-box div.field label {
+	text-align: right; width: 75px; float: left; font-weight: bold;
+	padding: 0.25em 0.5em; margin: 0;
+}
+
+div#login-box div.field input {
+	width: 200px; font-size: 1em; margin: 0;
+}
+
+div#login-box div.button-cont { margin: 2em 0; text-align: right; }
+
 /**
  * Menubar Styling
  */
@@ -100,6 +131,30 @@ ul.dropdown li.parent ul ul { left: 150px; top: 0; }
 
 /* Current menu always above any others */
 ul.dropdown li.hover ul { z-index: 200; }
+
+/**
+ * Buttons
+ */
+a.button {
+	text-decoration: none; color: #333; height: 25px; padding: 5px 10px 5px 5px;
+	background: #fff url('../img/button-background.png') repeat-x;
+	border: 1px solid #ddd; margin: 0.25em;
+	-webkit-border-radius: 3px;
+	-khtml-border-radius: 3px;	
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+}
+
+a.button:hover, a.button:active { background-position: 0% 100%; }
+
+a.button span {
+	background-repeat: no-repeat; background-position: left; padding-left: 20px;
+	display: inline-block;
+}
+
+/**
+ * !TODO - Merge the above and below styles
+ */
 
 /**
  * Action bar styling
